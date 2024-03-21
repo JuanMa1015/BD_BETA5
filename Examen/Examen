@@ -1,0 +1,29 @@
+*LAS TABLAS FUERON CREADAS DE FORMA GRÁFICA*
+USE UNAULA;
+/*insert into Carrera values
+(1,'TINF'),
+(2,'DER');*/
+
+/*insert into Alumno values
+(1,'Daniela','Bohorquez',1),
+(2,'Juan','Hernandez',1),
+(3,'Juan','David',1);*/
+
+/*INSERT INTO Asignatura Values
+(123,'BD'),
+(234,'PW'),
+(237,'CAL');*/
+
+/*create table Alumno_Asignatura(
+id_Matricula int not null,
+id_Nrc int not null,
+)*/
+
+/*INSERT INTO Alumno_Asignatura VALUES
+(1,123),
+(1,234),
+(1,237),
+(2,123);*/
+
+SELECT * FROM Alumno;
+--drop table Alumno_Asignatura;
