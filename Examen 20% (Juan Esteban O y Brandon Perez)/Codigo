@@ -1,0 +1,187 @@
+PÉREZ RAMÍREZ BRANDON OSWALDO
+ORTIZ RENDON JUAN ESTEBAN
+
+Creacion de las tabalas 
+
+USE [Restaurantes 3]
+
+CREATE TABLE Reserva(
+    Id_reserva int PRIMARY KEY,
+    Id_rest int,
+    Num_personas int,
+    Hora_reserva VARCHAR(30),
+    Fecha_Reserva Varchar(30),
+    FOREIGN KEY (Id_rest) REFERENCES Restaurante(Id_rest)
+);
+
+CREATE TABLE Pedido(
+    Id_pedido INT PRIMARY KEY,
+    Id_rest INT,
+    Precio_total INT,
+    Estado_pedido INT,
+    Tipo_entrega VARCHAR(50),
+    Hora VARCHAR(50),
+    Fecha VARCHAR(50),
+    FOREIGN KEY (Id_rest) REFERENCES Restaurante(Id_rest)
+);
+
+CREATE TABLE Cliente (
+    Id_cliente INT PRIMARY KEY,
+    Nombre VARCHAR(50),
+    Direccion VARCHAR(50),
+    Ciudad VARCHAR(50),
+    Pais VARCHAR(50),
+    Telefono INT,
+    Correo VARCHAR(50)
+	FOREIGN KEY (Id_cliente) REFERENCES Reserva(Id_Reserva),
+FOREIGN KEY (Id_cliente) REFERENCES Pedido(Id_pedido)
+);
+
+CREATE TABLE Restaurante (
+    Id_rest INT Primary KEY,
+    Nombre_rest VARCHAR(50),
+    Direccion VARCHAR(50),
+    Ciudad VARCHAR(50),
+    Pais VARCHAR(50),
+    Telefono INT,
+    Hora_apertura VARCHAR(50),
+    Hora_cierre VARCHAR(50),
+    Imagen IMAGE
+);
+
+CREATE TABLE Tipo_Cocina(
+    Id_tipo INT Primary KEY,
+    Tipo  VARCHAR(50),
+    Descripcion VARCHAR(100)
+);
+
+CREATE TABLE Restaurante_tipococina(
+    Id_rest INT,
+    Id_tipo INT,
+    Primary Key (Id_rest,Id_Tipo),
+    FOREIGN KEY (Id_rest) REFERENCES Restaurante(Id_rest),
+    FOREIGN Key (Id_tipo) REFERENCES Tipo_Cocina(Id_tipo)
+);
+
+CREATE TABLE Menu (
+    Id_menu INT PRIMARY KEY,
+    Id_rest  INT,
+    Plato VARCHAR(50),
+    Descripcion VARCHAR(50),
+    Precio INT,
+    FOREIGN KEY (Id_rest)REFERENCES Restaurante(Id_rest)
+);
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--insercion se datos 
+
+USE Restaurantes
+
+INSERT INTO Restaurante (Id_rest, Nombre_rest, Direccion, Ciudad, Pais, Telefono, Hora_apertura, Hora_cierre, Imagen) Values 
+(2,'bella vita', 'Avenida 13', 'medellin', 'Colombia', 456123, '7:00 am', '8:00 pm',null),
+(3,'rapiditos', 'calle 12', 'medellin', 'Colombia', 478943, '7:00 am', '8:00 pm',null),
+(4,'la comida de la abuela ', 'Calle 13', 'Bogota', 'Colombia', 456123, '8:00 am', '9:00 pm',null),
+(5,'Los weros', 'Avenida 24', 'Bogota', 'Colombia', 456123, '8:00 am', '9:00 pm',null),
+(6,'El paisita', 'avenida 40 sur ', 'Bogota', 'Colombia', 456123, '8:00 am', '9:00 pm',null)
+
+
+INSERT INTO Menu (Id_menu, Id_rest, Plato, Descripcion, Precio)  Values
+(2, 1, 'pizza', 'circulo de pan con ingredientes al gusto ', 250),
+(3, 1, 'Pasta Penne carbonara', 'Pasta con carbonara  ', 250),
+(4, 2, 'Carpaccio', 'Carne cruda majada finamente y sasonada ', 300),
+(5, 2, 'Lasaña', 'Pata en capas con carne a la boloñesa   ', 300),
+(6, 3, 'Ambuerguesa', 'una carne entre dos trozos de pan  ', 200),
+(7, 3, 'Perro caliente ', 'salchicha entre dos panes  ', 200),
+(8, 4, 'sancocho', 'sopa con carne de res,papa,yuca,platano ', 350),
+(9, 4, 'Fijoles', 'sopa de frijoles ', 350),
+(10, 5, 'Tacos', ' Tacos al pastor  ', 150),
+(11, 5, 'Nachos', 'nachos con queso,carne y salsas',150),
+(12, 6,'Arepa paisa','arepa con carne desmechada y frijoles',150)
+
+
+
+INSERT INTO Reserva (Id_reserva, Id_rest, Num_personas, Hora_reserva, Fecha_reserva) VALUES
+(1, 1, 4, '19:00', '2024-04-03'),
+(2, 2, 2, '20:30', '2024-04-04'),
+(3, 3, 6, '18:00', '2024-04-05'),
+(4, 4, 3, '21:00', '2024-04-06'),
+(5, 5, 5, '19:30', '2024-04-07');
+
+
+INSERT INTO Pedido (Id_pedido, Id_rest, Precio_total, Estado_pedido, Tipo_entrega, Hora, Fecha) VALUES
+(1, 1, 45, 1, 'Para llevar', '12:15', '2024-04-03'),
+(2, 2, 60, 2, 'A domicilio', '18:30', '2024-04-04'),
+(3, 3, 80, 1, 'Para llevar', '20:00', '2024-04-05'),
+(4, 4, 30, 3, 'A domicilio', '21:45', '2024-04-06'),
+(5, 5, 25, 1, 'Para llevar', '13:00', '2024-04-07');
+
+
+INSERT INTO Cliente (Id_cliente, Nombre, Direccion, Ciudad, Pais, Telefono, Correo) VALUES
+(1, 'Juan Pérez', 'Calle 123', 'Ciudad A', 'Pais A', 123456789, 'juan@example.com'),
+(2, 'María Gómez', 'Avenida 456', 'Ciudad B', 'Pais B', 987654321, 'maria@example.com'),
+(3, 'Carlos López', 'Carrera 789', 'Ciudad C', 'Pais C', 654321987, 'carlos@example.com'),
+(4, 'Ana Martínez', 'Pasaje 456', 'Ciudad D', 'Pais D', 789654321, 'ana@example.com');
+
+
+INSERT INTO Tipo_Cocina (Id_tipo, Tipo, Descripcion) VALUES
+(1, 'Mediterránea', 'Platos inspirados en la cocina mediterránea'),
+(2, 'Mexicana', 'Platos típicos de la gastronomía mexicana'),
+(3, 'colombiana','Platos emblemáticos de la cocina Colombiana'),
+(4, 'Italiana', 'Platos tradicionales italianos'),
+(5, 'Japonesa', 'Platos auténticos japoneses'),
+(6, 'Rapida', 'Platos de comida rapida y grasosa');
+
+ INSERT INTO Restaurante_tipococina (Id_rest, Id_tipo) VALUES
+(1, 4), 
+(2, 6),  
+(3, 3),  
+(4, 2),  
+(5, 3); 
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Consultas
+
+USE Restaurantes
+--¿Cuáles son los restaurantes que ofrecen cocina italiana?
+SELECT r.Nombre_rest AS Restaurante_Italiano FROM Restaurante r INNER JOIN Restaurante_tipococina rtc ON r.Id_rest = rtc.Id_rest INNER JOIN Tipo_Cocina tc ON rtc.Id_tipo = tc.Id_tipo WHERE tc.Tipo = 'Italiana';
+
+--¿Cuál es el plato más popular en cada restaurante? x
+SELECT r.Nombre_rest AS Restaurante, m.Plato AS Plato_Más_Popular, MAX(m.Precio) AS Precio
+FROM Restaurante r
+INNER JOIN Menu m ON r.Id_rest = m.Id_rest
+GROUP BY r.Nombre_rest;
+
+--¿Cuántos pedidos se han realizado en un restaurante determinado?
+SELECT COUNT(*) AS Pedidos_Realizados FROM Pedido WHERE Id_rest = 1
+;
+--¿Cuántas reservas se han realizado en una fecha determinada? 
+SELECT COUNT(*) AS Reservas_Realizadas FROM Reserva WHERE Fecha_Reserva = '2024-04-03';
+
+
+--Finalmente, crea una consulta que muestre la información de los restaurantes, sus menús y platos, los pedidos realizados y las reservas realizadas por los clientes. 
+SELECT 
+    r.Nombre_rest AS Restaurante,
+    m.Plato AS Plato,
+    m.Descripcion AS Descripcion_Platos,
+    p.Precio_total AS Precio_Pedido,
+    pe.Tipo_entrega AS Tipo_Entrega,
+    c.Nombre AS Cliente,
+    c.Direccion AS Direccion_Cliente,
+    c.Ciudad AS Ciudad_Cliente,
+    c.Pais AS Pais_Cliente,
+    r.Hora_apertura AS Hora_Apertura,
+    r.Hora_cierre AS Hora_Cierre,
+    re.Num_personas AS Num_Personas_Reserva,
+    re.Hora_reserva AS Hora_Reserva,
+    re.Fecha_reserva AS Fecha_Reserva
+FROM Pedido p
+INNER JOIN Restaurante r ON p.Id_rest = r.Id_rest
+INNER JOIN Menu m ON p.Id_rest = m.Id_rest
+INNER JOIN Reserva re ON p.Id_rest = re.Id_rest
+INNER JOIN Cliente c ON p.Id_pedido = c.Id_cliente
+INNER JOIN Pedido pe ON p.Id_pedido = pe.Id_pedido;
