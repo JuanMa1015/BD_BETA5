@@ -1,0 +1,238 @@
+use Gestion_Restaurantes 
+
+/*CREATE TABLE Restaurantes (
+    id_Restaurante INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL, 
+    dirección VARCHAR(50) NOT NULL,
+    ciudad VARCHAR(50) NOT NULL,
+    pais VARCHAR(50) NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    horario_Apertura TIME NOT NULL,
+    horario_Cierre TIME NOT NULL,
+    imagen IMAGE
+);*/
+
+/*CREATE TABLE Cocinas (
+    id_cocina INT PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    Descripción VARCHAR(150) NOT NULL
+);*/
+
+/*CREATE TABLE Menus (
+    id_Menu INT PRIMARY KEY,
+    id_Restaurante INT NOT NULL,
+    id_Cocina INT NOT NULL,
+    FOREIGN KEY (id_Restaurante) REFERENCES Restaurantes(id_Restaurante),
+    FOREIGN KEY (id_Cocina) REFERENCES Cocinas(id_Cocina)
+);*/
+
+/*CREATE TABLE Platos (
+    id_Plato INT PRIMARY KEY,
+    iombre VARCHAR(50) NOT NULL,
+    iescripción VARCHAR(200) NOT NULL,
+    irecio DECIMAL(10,2) NOT NULL,
+    id_Menu INT NOT NULL,
+    FOREIGN KEY (id_Menu) REFERENCES Menús(id_Menu)
+);*/
+
+/*CREATE TABLE Clientes (
+    id_Cliente INT PRIMARY KEY,
+    nombre VARCHAR(30) NOT NULL,
+    dirección VARCHAR(30) NOT NULL,
+    ciudad VARCHAR(20) NOT NULL,
+    país VARCHAR(20) NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    correo_Electrónico VARCHAR(50) NOT NULL
+);*/
+
+/*CREATE TABLE Pedidos (
+    id_Pedido INT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
+    precio_Total DECIMAL(10,2) NOT NULL,
+    id_Restaurante INT NOT NULL,
+    id_Cliente INT NOT NULL,
+    FOREIGN KEY (id_Restaurante) REFERENCES Restaurantes(id_Restaurante),
+    FOREIGN KEY (id_Cliente) REFERENCES Clientes(id_Cliente)
+);*/
+
+/*CREATE TABLE Reservas (
+    id_reserva INT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    numero_Personas INT NOT NULL,
+    id_Restaurante INT NOT NULL,
+    id_Cliente INT NOT NULL,
+    FOREIGN KEY (id_Restaurante) REFERENCES Restaurantes(id_Restaurante),
+    FOREIGN KEY (id_Cliente) REFERENCES Clientes(id_Cliente)
+);*/
+
+/*CREATE TABLE Ventas_Platos (
+    id_Venta INT PRIMARY KEY,
+    id_Plato INT NOT NULL,
+    fecha DATE NOT NULL,
+    cantidad INT NOT NULL,
+    FOREIGN KEY (id_Plato) REFERENCES Platos(id_Plato)
+);*/
+
+/*INSERT INTO Restaurantes(id_Restaurante,nombre,dirección,ciudad,pais,telefono,horario_Apertura,horario_Cierre,imagen) VALUES
+(1, 'El Jardin del Sabor', 'Calle Principal #123', 'Pereira', 'Colombia', '3101234567', '06:00:00', '23:00:00',Null),
+(2, 'La Pizza Italiana','Avenida Libertad #45','Medellín','Colombia','3219876543','12:00:00','22:00:00',NULL),
+(3, 'Sabores del Mar','Plaza Central #7','Madrid','España','600123456','08:00:00','20:00:00',Null),
+(4, 'La Parrilla Argenta','Calle de los Sabores #10','Buenos Aires','Argentina',' 91112345678','11:45:00','20:30:00',Null),
+(5, 'Sushi Fusion', 'Avenida del Sol #28', 'Yokohama', 'Japón', '9012345678', '09:15:00', '22:30:00', NULL),
+(6, 'El Rincón Mexicano', 'Paseo del Mar #3', 'Milán', 'Italia', '0212345678', '05:30:00', '22:45:00', NULL),
+(7, 'Brasserie Le Château', 'Calle de la Rosa #15', 'Bogotá', 'Colombia', '3005558899', '11:45:00', '23:15:00', NULL),
+(8, 'Gusto Mediterráneo', 'Boulevard de la Montaña #6', 'Lyon', 'Francia', '612345678', '08:30:00', '19:30:00', NULL),
+(9, 'Café del Artista', 'Avenida de la Paz #22', 'Puebla', 'México', '5512345678', '12:30:00', '23:00:00', NULL),
+(10, 'La Cabaña Gaucha', 'Calle del Sol y Luna #9', 'Santiago', 'Chile', '912345678', '06:30:00', '21:15:00', NULL);*/
+
+/*INSERT INTO Cocinas(Id_Cocina,Nombre, Descripción) VALUES
+(1, 'Colombiana', 'Platos frescos y coloridos, inspirados en la cocina local'),
+(2, 'Colombiana','Auténtica comida italiana, pero no solo pizza, también pastas, rissotos y mucho más'),
+(3, 'Española','Mariscos frescos y pescados'),
+(4, 'Argentina','Especialistas en carne a la parrilla'),
+(5, 'Japonesa', 'Variedad de sushi y rolls'),
+(6, 'Italiana', 'La más picante del mundo, tacos, enchiladas, quesadillas y más'),
+(7, 'Colombiana', 'Experiencia culinaria francesa única y una selección de vinos finos'),
+(8, 'Francesa', 'Ingredientes frescos, aceite de oliva, hierbas aromáticas, y sabores soleados'),
+(9, 'Mexicana', 'Pasteles caseros, sándwiches gourmet, una selección de bebidas artesanales y el mejor café'),
+(10, 'Chilena', 'Los mejores fritos de la ciudad, el choripan es nuestra especialidad');*/
+
+/* INSERT INTO Menus(id_Menu, id_Restaurante, id_Cocina) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5),
+(6, 6, 6),  
+(7, 7, 7),  
+(8, 8, 8),  
+(9, 9, 9),  
+(10, 10, 10);*/
+
+/*INSERT INTO Platos(id_Plato, iombre, iescripción, irecio, id_Menu) VALUES
+(1, 'Paella', 'arroz cocinado con azafrán, mariscos, pollo, conejo y vegetales.', 35.000, 4),
+(2, 'Asado', 'Una selección de cortes de carne asada a la parrilla, típicamente servida con chimichurri', 45.000, 5),
+(3, 'Bandeja Paisa', 'carne asada, chicharrón, frijoles, arroz, huevo frito, aguacate y plátano maduro frito.', 30.000, 1),
+(4, 'Cazuela de Ave', 'Un guiso chileno hecho con pollo, papas, choclo, zapallo, cebolla y otras verduras', 25.000, 4),
+(5, 'Boeuf Bourguignon', 'Un guiso francés de carne de res cocinada lentamente en vino tinto', 40.000, 5),
+(6, 'Risotto ai Funghi','arroz cremoso cocinado con champiñones, caldo de pollo, vino blanco, cebolla y queso parmesano.',37.000, 2),
+(7, 'Sushi Variado', 'Una selección de sushi que puede incluir nigiri, maki rolls y sashimi', 50.000, 6),
+(8, 'Tortilla Española', 'Un clásico plato español hecho con huevos, papas y cebollas', 15.000, 6),
+(9, 'Milanesa Napolitana', 'Una milanesa de carne empanizada cubierta con salsa de tomate, jamón y queso mozzarella', 30.000, 3),
+(10, 'Ajiaco', 'Una sopa colombiana espesa hecha con pollo, papas criollas, mazorca de maíz, guascas y crema de leche', 18.000, 8),
+(11, 'Pastel de Choclo', 'Un pastel chileno hecho con una base de masa de choclo y relleno con carne', 20.000, 9),
+(12, 'Coq au Vin', 'Un plato francés de pollo cocinado en vino tinto con champiñones, cebollas, zanahorias, ajo y hierbas.', 45.000, 10),
+(13, 'Linguine alla Carbonara', 'Una pasta italiana de linguine con una salsa cremosa de huevo, panceta y queso pecorino', 30.000, 7),
+(14, 'Tempura', 'Un plato japonés de mariscos o vegetales rebozados y fritos en una masa ligera y crujiente.', 50.000, 10);*/
+
+/*INSERT INTO Clientes(Id_Cliente, Nombre, Dirección, Ciudad, País, Telefono, Correo_electrónico) VALUES
+(1, 'María', 'Calle Primavera 123', 'Bogotá', 'Colombia', '3101234567', 'maria.lopez@gmail.com'),
+(2, 'José', 'Avenida del Sol 456', 'Lima', 'Perú', '987654321', 'jose@gmail.com'),
+(3, 'Carlos', 'Calle Rosas 789', 'Santiago', 'Chile', '987654321', 'carlos@hotmail.com'),
+(4, 'Sofía', 'Rue de la Paix 123', 'París','Francia','612345678','sofia@gmail.com'),
+(5, 'Giorgio', 'Via Roma 456', 'Roma','Italia', '3339876543', 'giorgio@outlook.com'),
+(6, 'Akira', 'Shibuya-ku 789', 'Tokio', 'Japón', '9023456789', 'akira@gmail.com'),
+(7, 'Silvia', 'Carrera 10 #567', 'Medellín', 'Colombia', '3009876543', 'carlos@hotmail.com'),
+(8, 'Alejandro', 'Calle la Luna 890', 'Madrid', 'España', '600987654', 'alejandro@gmail.com'),
+(9, 'Andrea', 'Av. Libertador 101', 'Buenos Aires', 'Argentina', '91187654321', 'Pedro@outlook.com'),
+(10, 'Laura', 'Carrera 15 #234', 'Monterrey', 'México', '5512345678', 'laura@yahoo.com');*/
+
+/*INSERT INTO Pedidos(Id_Pedido, Fecha, Hora, Tipo, Estado, Precio_Total, Id_Restaurante, Id_Cliente) VALUES
+(1, '2024-05-12', '11:02:00', 'Entrega a domicilio', 'En preparación', 15.000, 2, 2),
+(2, '2024-05-03', '09:30:00', 'A la mesa', 'Enviado', 10.000, 1, 1),
+(3, '2024-06-01', '18:15:00', 'A la mesa', 'Entregado', 30.000, 3, 4),
+(4, '2024-06-29', '05:30:00', 'Para llevar', 'En preparación',90.000, 5, 3),
+(5, '2024-06-15', '07:20:00', 'Entrega a domicilio', 'Enviado', 45.000, 1, 5),
+(6, '2024-04-13', '22:40:00', 'Para llevar', 'Enviado', 55.000, 4, 3),
+(7, '2024-04-02', '23:50:00', 'Para llevar', 'Enviado', 75.000, 2, 1),
+(8, '2024-04-12', '11:15:00', 'Entrega a domicilio', 'Enviado', 5.000, 8, 7),
+(9, '2024-04-25', '14:00:00', 'A la mesar', 'En preparación', 77.777, 3, 5),
+(10, '2024-04-07', '15:04:00', 'Entrega a domicilio', 'Enviado', 66.000, 6, 7),
+(11, '2024-04-08', '08:10:00', 'Para llevar', 'Entregado', 23.500, 8, 1),
+(12, '2024-04-09', '18:30:00', 'Entrega a domicilio', 'En preparación', 43.750, 3, 9),
+(13, '2024-04-10', '16:40:00', 'A la mesa', 'Enviado', 86.200, 2, 10),
+(14, '2024-04-11', '12:25:00', 'Para llevar', 'En preparación', 20.000, 10, 6),
+(15, '2024-04-12', '21:35:00', 'Entrega a domicilio', 'Enviado', 34.800, 5, 7),
+(16, '2024-04-13', '18:02:00', 'A la mesa', 'Entregado', 12.000, 1, 8),
+(17, '2024-04-14', '22:40:00', 'Para llevar', 'En preparación', 154.500, 2, 9),
+(18, '2024-04-15', '08:08:00', 'Para llevar', 'Entregado', 99.999, 3, 10);*/
+
+/*INSERT INTO Reservas(Id_reserva, Fecha, Hora, Numero_Personas, id_Restaurante, Id_Cliente) VALUES
+(1, '2024-09-05', '20:25:00', 5, 1, 1),
+(2, '2024-10-06', '21:30:00', 3, 2, 2),
+(3, '2024-12-07', '22:36:00', 4, 5, 3),
+(4, '2024-11-07', '10:30:00', 6, 4, 4),
+(5, '2024-07-08', '23:00:00', 2, 6, 10),
+(6, '2024-05-09', '12:00:00', 4, 7, 10),
+(7, '2024-07-10', '13:15:00', 3, 8, 5),
+(8, '2024-04-11', '14:00:00', 5, 9, 9),
+(9, '2024-06-12', '15:30:00', 6, 10, 5),
+(10, '2024-08-13', '16:00:00', 7, 4, 1),
+(11, '2024-09-14', '17:50:00', 8, 3, 7),
+(12, '2024-12-24', '18:00:00', 9, 1, 6),
+(13, '2024-12-24', '19:00:00', 10, 2, 8),
+(14, '2024-12-24', '20:00:00', 11, 3, 10);*/
+
+/*INSERT INTO Ventas_Platos(id_Venta, id_Plato, fecha, cantidad) VALUES
+(6, 13,'2024-04-07', 4),
+(4, 13,'2024-04-10', 7),  
+(5, 11,'2024-05-12', 9),  
+(5, 12,'2024-05-01', 5),  
+(1, 14,'2024-06-19', 8), 
+(7, 11,'2024-07-22', 2),
+(8, 14,'2024-07-28', 1),
+(2, 13,'2024-07-29', 3),  
+(4, 11,'2024-08-30', 7),  
+(2, 11,'2024-12-24', 4),  
+(2, 12,'2024-06-13', 6), 
+(1, 14,'2025-06-21', 3);*/
+
+--¿Cuáles son los restaurantes que ofrecen cocina italiana?--
+SELECT R.Nombre
+FROM Restaurantes r
+JOIN Menus m ON R.id_Restaurante = M.id_Restaurante
+JOIN Cocinas c ON M.id_Cocina = C.id_Cocina
+WHERE c.nombre = 'Italiana';
+
+--¿Cuál es el plato más popular en cada restaurante?--
+SELECT R.Nombre AS 'Nombre del Restaurante', P.iombre AS 'Nombre del Plato', SUM(vp.Cantidad) AS 'Cantidad Vendida'
+FROM Ventas_Platos vp
+JOIN Platos p ON vp.Id_Plato = p.Id_Plato
+JOIN Menus m ON P.Id_Menu = M.id_Menu
+JOIN Restaurantes r ON m.Id_Restaurante = R.Id_Restaurante
+GROUP BY R.Nombre, P.iombre
+ORDER BY SUM(vp.Cantidad) DESC;
+
+--¿Cuántos pedidos se han realizado en un restaurante determinado?--
+SELECT *
+FROM Pedidos
+WHERE id_Restaurante = 3; 
+
+--¿Cuántas reservas se han realizado en una fecha determinada? --
+SELECT *
+FROM Reservas
+WHERE fecha = '2024-07-10';  -- Se puede cambiar las fechas para buscar la reserva deseada
+
+--PUNTO 5--
+-- Información de los restaurantes, sus menús y platos
+SELECT R.Id_Restaurante, R.Nombre AS 'Nombre del Restaurante', M.id_Menu, C.Nombre AS 'Nombre de la Cocina', P.Id_Plato, P.iombre AS 'Nombre del Plato'
+FROM Restaurantes R
+JOIN Menus M ON R.Id_Restaurante = M.Id_Restaurante
+JOIN Cocinas C ON M.Id_Cocina = C.Id_Cocina
+JOIN Platos P ON M.Id_Menu = P.Id_Menu;
+
+-- Información de los pedidos realizados
+SELECT Pe.Id_Pedido, Pe.Fecha, Pe.Hora, Pe.Tipo, Pe.Estado, Pe.Precio_Total, R.Nombre AS 'Nombre del Restaurante', Cl.Nombre AS 'Nombre del Cliente'
+FROM Pedidos Pe
+JOIN Restaurantes R ON Pe.Id_Restaurante = R.Id_Restaurante
+JOIN Clientes Cl ON Pe.Id_Cliente = Cl.Id_Cliente;
+
+-- Información de las reservas realizadas por los clientes
+SELECT Re.Id_reserva, Re.Fecha, Re.Hora, Re.numero_Personas, R.Nombre AS 'Nombre del Restaurante', Cl.Nombre AS 'Nombre del Cliente'
+FROM Reservas Re
+JOIN Restaurantes R ON Re.Id_Restaurante = R.Id_Restaurante
+JOIN Clientes Cl ON Re.Id_Cliente = Cl.Id_Cliente;
