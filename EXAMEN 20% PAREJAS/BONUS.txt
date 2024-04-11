@@ -1,0 +1,12 @@
+--select count(Quantity) as Pedidos_Realizados from [Order Details] 
+
+--select FirstName from Employees where title = 'Sales Representative'
+
+--select count(UnitsOnOrder) as Total_Ventas from Products Group By CategoryID
+
+--select TOP 10  ContactName,count(OrderID) AS TotalPedidos FROM Customers c JOIN Orders p ON c.CustomerID = p.CustomerID GROUP BY ContactName ORDER BY TotalPedidos DESC
+
+--select ProductName from Products where ProductName like '%Chocolate%'
+
+--select FirstName from Employees where BirthDate > '1960-01-01'
+
